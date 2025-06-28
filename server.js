@@ -3,6 +3,7 @@ import connectDB from "./config/connectDB.js";
 import AuthRouter from "./routes/AuthUserRoute.js";
 import userRouter from "./routes/User-route.js";
 import cors from "cors";
+import arcjetMiddleware from "./controllers/middlewares/arcjetMiddleware.js";
 
 const app = express ();
 import "dotenv/config"
@@ -13,6 +14,8 @@ const PORT = process.env.PORT;
 app.use(express.json());
 
 app.use(cors());
+
+app.use(arcjetMiddleware);
 
 app.get("/",(req,res,next)=>{
 
